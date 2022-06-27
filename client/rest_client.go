@@ -1,11 +1,13 @@
 package client
 
 import (
-	"github.com/franela/goreq"
-	"github.com/opsgenie/opsgenie-go-sdk/logging"
 	"errors"
 	"net/url"
 	"strconv"
+	"time"
+
+	"github.com/franela/goreq"
+	"github.com/opsgenie/opsgenie-go-sdk/logging"
 )
 
 // OpsGenieRestClient is the data type to make requests.
@@ -35,7 +37,7 @@ func (cli *RestClient) sendGetRequest(req Request, response Response) error {
 
 	request := cli.buildGetRequest(cli.generateFullPathWithParams(path, params), nil)
 	cli.setApiKey(&request, req.GetApiKey())
-	httpResponse, err := cli.sendRequest(request)
+	httpResponse, err := cli.sendRequestWithRetries(request)
 	if err != nil {
 		return err
 	}
@@ -57,7 +59,7 @@ func (cli *RestClient) sendPatchRequest(req Request, response Response) error {
 
 	request := cli.buildPatchRequest(cli.generateFullPathWithParams(path, params), req)
 	cli.setApiKey(&request, req.GetApiKey())
-	httpResponse, err := cli.sendRequest(request)
+	httpResponse, err := cli.sendRequestWithRetries(request)
 	if err != nil {
 		return err
 	}
@@ -79,7 +81,7 @@ func (cli *RestClient) sendPutRequest(req Request, response Response) error {
 
 	request := cli.buildPutRequest(cli.generateFullPathWithParams(path, params), req)
 	cli.setApiKey(&request, req.GetApiKey())
-	httpResponse, err := cli.sendRequest(request)
+	httpResponse, err := cli.sendRequestWithRetries(request)
 	if err != nil {
 		return err
 	}
@@ -113,7 +115,7 @@ func (cli *RestClient) sendPostRequest(req Request, response Response) error {
 
 	httpRequest := cli.buildPostRequest(path, req)
 	cli.setApiKey(&httpRequest, req.GetApiKey())
-	httpResponse, err := cli.sendRequest(httpRequest)
+	httpResponse, err := cli.sendRequestWithRetries(httpRequest)
 
 	if err != nil {
 		return err
@@ -139,11 +141,10 @@ func (cli *RestClient) sendDeleteRequest(req Request, response Response) error {
 
 	path = cli.generateFullPathWithParams(path, params)
 
-
 	httpRequest := cli.buildDeleteRequest(path, nil)
 	cli.setApiKey(&httpRequest, req.GetApiKey())
 
-	httpResponse, err := cli.sendRequest(httpRequest)
+	httpResponse, err := cli.sendRequestWithRetries(httpRequest)
 	if err != nil {
 		return err
 	}
@@ -191,6 +192,29 @@ func (cli *RestClient) setResponseMeta(httpResponse *goreq.Response, response Re
 	if err == nil {
 		response.SetResponseTime(float32(responseTime))
 	}
+}
+
+func (cli *RestClient) sendRequestWithRetries(request goreq.Request) (*goreq.Response, error) {
+	var retry = 20
+	maxSleepMs := 30000
+	var sleepMs = 100
+	var httpResponse *goreq.Response
+	var err error
+	for retry > 0 {
+		httpResponse, err := cli.sendRequest(request)
+		if err == nil {
+			return httpResponse, err
+		}
+		defer httpResponse.Body.Close()
+		retry--
+		sleepMs *= 2
+		if sleepMs > maxSleepMs {
+			sleepMs = maxSleepMs
+		}
+		time.Sleep(time.Duration(sleepMs) * time.Millisecond)
+	}
+
+	return httpResponse, err
 }
 
 type Request interface {
