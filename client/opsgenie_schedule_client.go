@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/opsgenie/opsgenie-go-sdk/logging"
-	"github.com/opsgenie/opsgenie-go-sdk/schedule"
+	"github.com/jayhyuk/opsgenie-go-sdk/logging"
+	"github.com/jayhyuk/opsgenie-go-sdk/schedule"
 )
 
 const (

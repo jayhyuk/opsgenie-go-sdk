@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/opsgenie/opsgenie-go-sdk/_samples/constants"
-	ogcli "github.com/opsgenie/opsgenie-go-sdk/client"
-	"github.com/opsgenie/opsgenie-go-sdk/logs"
+	"github.com/jayhyuk/opsgenie-go-sdk/_samples/constants"
+	ogcli "github.com/jayhyuk/opsgenie-go-sdk/client"
+	"github.com/jayhyuk/opsgenie-go-sdk/logs"
 )
 
 func main() {

@@ -1,8 +1,8 @@
 package client
 
 import (
-	"github.com/opsgenie/opsgenie-go-sdk/alertsv2"
-	"github.com/opsgenie/opsgenie-go-sdk/alertsv2/savedsearches"
+	"github.com/jayhyuk/opsgenie-go-sdk/alertsv2"
+	"github.com/jayhyuk/opsgenie-go-sdk/alertsv2/savedsearches"
 	"errors"
 	"github.com/franela/goreq"
 )

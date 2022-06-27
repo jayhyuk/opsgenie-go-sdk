@@ -2,7 +2,7 @@ package savedsearches
 
 import (
 	"time"
-	"github.com/opsgenie/opsgenie-go-sdk/alertsv2"
+	"github.com/jayhyuk/opsgenie-go-sdk/alertsv2"
 )
 
 type SavedSearch struct {

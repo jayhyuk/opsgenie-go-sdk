@@ -1,9 +1,9 @@
 package main
 
 import(
-	ogcli "github.com/opsgenie/opsgenie-go-sdk/client"
-	"github.com/opsgenie/opsgenie-go-sdk/_samples/constants"
-	contacts "github.com/opsgenie/opsgenie-go-sdk/contact"
+	ogcli "github.com/jayhyuk/opsgenie-go-sdk/client"
+	"github.com/jayhyuk/opsgenie-go-sdk/_samples/constants"
+	contacts "github.com/jayhyuk/opsgenie-go-sdk/contact"
 	"fmt"
 )
 

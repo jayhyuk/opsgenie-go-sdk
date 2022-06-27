@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/opsgenie/opsgenie-go-sdk/userv2"
+	"github.com/jayhyuk/opsgenie-go-sdk/userv2"
 )
 
 // OpsGenieUserV2Client is the data type to make User API requests.

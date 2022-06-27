@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/opsgenie/opsgenie-go-sdk/schedulev2"
+	"github.com/jayhyuk/opsgenie-go-sdk/schedulev2"
 )
 
 // OpsGenieScheduleRotationV2Client is the data type to make Schedule rule API requests.

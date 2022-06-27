@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/franela/goreq"
-	"github.com/opsgenie/opsgenie-go-sdk/logging"
+	"github.com/jayhyuk/opsgenie-go-sdk/logging"
 )
 
 // OpsGenieRestClient is the data type to make requests.

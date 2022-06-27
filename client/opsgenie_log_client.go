@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/opsgenie/opsgenie-go-sdk/logs"
+	"github.com/jayhyuk/opsgenie-go-sdk/logs"
 )
 
 // OpsGenieLogClient is the data type to make Customer Log rule API requests.

@@ -2,8 +2,8 @@ package client
 
 import (
 	"errors"
-	"github.com/opsgenie/opsgenie-go-sdk/escalation"
-	"github.com/opsgenie/opsgenie-go-sdk/logging"
+	"github.com/jayhyuk/opsgenie-go-sdk/escalation"
+	"github.com/jayhyuk/opsgenie-go-sdk/logging"
 )
 
 const (

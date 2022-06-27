@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/opsgenie/opsgenie-go-sdk/_samples/constants"
-	ogcli "github.com/opsgenie/opsgenie-go-sdk/client"
-	sch "github.com/opsgenie/opsgenie-go-sdk/schedule"
-	"github.com/opsgenie/opsgenie-go-sdk/scheduleoverride"
+	"github.com/jayhyuk/opsgenie-go-sdk/_samples/constants"
+	ogcli "github.com/jayhyuk/opsgenie-go-sdk/client"
+	sch "github.com/jayhyuk/opsgenie-go-sdk/schedule"
+	"github.com/jayhyuk/opsgenie-go-sdk/scheduleoverride"
 )
 
 func main() {

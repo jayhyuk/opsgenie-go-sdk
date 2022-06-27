@@ -3,7 +3,7 @@ package savedsearches
 import (
 	"net/url"
 	"errors"
-	"github.com/opsgenie/opsgenie-go-sdk/alertsv2"
+	"github.com/jayhyuk/opsgenie-go-sdk/alertsv2"
 )
 
 type UpdateSavedSearchRequest struct {

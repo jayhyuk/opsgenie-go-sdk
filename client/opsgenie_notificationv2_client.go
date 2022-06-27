@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/opsgenie/opsgenie-go-sdk/notificationv2"
+	"github.com/jayhyuk/opsgenie-go-sdk/notificationv2"
 )
 
 // OpsGenieNotificationV2Client is the data type to make Notification rule API requests.
